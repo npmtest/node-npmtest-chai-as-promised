@@ -1,0 +1,1349 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-chai-as-promised/chai-as-promised/lib/chai-as-promised.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-chai-as-promised">npmtest-chai-as-promised (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-chai-as-promised/chai-as-promised/lib/chai-as-promised.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">8.75% <small>(14 / 160)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 74)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 53)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">8.81% <small>(14 / 159)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-chai-as-promised/chai-as-promised/lib/</a> &#187; chai-as-promised.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+var checkError = require("check-error");
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function (chai, utils) {</span>
+<span class="cstat-no" title="statement not covered" >    var Assertion = chai.Assertion;</span>
+<span class="cstat-no" title="statement not covered" >    var assert = chai.assert;</span>
+&nbsp;
+    // If we are using a version of Chai that has checkError on it,
+    // we want to use that version to be consistent. Otherwise, we use
+    // what was passed to the factory.
+<span class="cstat-no" title="statement not covered" >    if (utils.checkError) {</span>
+<span class="cstat-no" title="statement not covered" >        checkError = utils.checkError;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function isLegacyJQueryPromise(thenable) {</span>
+        // jQuery promises are Promises/A+-compatible since 3.0.0. jQuery 3.0.0 is also the first version
+        // to define the catch method.
+<span class="cstat-no" title="statement not covered" >        return typeof thenable.catch !== "function" &amp;&amp;</span>
+               typeof thenable.always === "function" &amp;&amp;
+               typeof thenable.done === "function" &amp;&amp;
+               typeof thenable.fail === "function" &amp;&amp;
+               typeof thenable.pipe === "function" &amp;&amp;
+               typeof thenable.progress === "function" &amp;&amp;
+               typeof thenable.state === "function";
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function assertIsAboutPromise(assertion) {</span>
+<span class="cstat-no" title="statement not covered" >        if (typeof assertion._obj.then !== "function") {</span>
+<span class="cstat-no" title="statement not covered" >            throw new TypeError(utils.inspect(assertion._obj) + " is not a thenable.");</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (isLegacyJQueryPromise(assertion._obj)) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new TypeError("Chai as Promised is incompatible with thenables of jQuery&lt;3.0.0, sorry! Please " +</span>
+                                "upgrade jQuery or use another Promises/A+ compatible library (see " +
+                                "http://promisesaplus.com/).");
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function method(name, asserter) {</span>
+<span class="cstat-no" title="statement not covered" >        utils.addMethod(Assertion.prototype, name, <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            assertIsAboutPromise(this);</span>
+<span class="cstat-no" title="statement not covered" >            return asserter.apply(this, arguments);</span>
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function property(name, asserter) {</span>
+<span class="cstat-no" title="statement not covered" >        utils.addProperty(Assertion.prototype, name, <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            assertIsAboutPromise(this);</span>
+<span class="cstat-no" title="statement not covered" >            return asserter.apply(this, arguments);</span>
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function doNotify(promise, done) {</span>
+<span class="cstat-no" title="statement not covered" >        promise.then(<span class="fstat-no" title="function not covered" >function () {</span> <span class="cstat-no" title="statement not covered" >done(); </span>}, done);</span>
+    }
+&nbsp;
+    // These are for clarity and to bypass Chai refusing to allow `undefined` as actual when used with `assert`.
+<span class="fstat-no" title="function not covered" >    function assertIfNegated(assertion, message, extra) {</span>
+<span class="cstat-no" title="statement not covered" >        assertion.assert(true, null, message, extra.expected, extra.actual);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function assertIfNotNegated(assertion, message, extra) {</span>
+<span class="cstat-no" title="statement not covered" >        assertion.assert(false, message, null, extra.expected, extra.actual);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getBasePromise(assertion) {</span>
+        // We need to chain subsequent asserters on top of ones in the chain already (consider
+        // `eventually.have.property("foo").that.equals("bar")`), only running them after the existing ones pass.
+        // So the first base-promise is `assertion._obj`, but after that we use the assertions themselves, i.e.
+        // previously derived promises, to chain off of.
+<span class="cstat-no" title="statement not covered" >        return typeof assertion.then === "function" ? assertion : assertion._obj;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getReasonName(reason) {</span>
+<span class="cstat-no" title="statement not covered" >        return (reason instanceof Error) ? reason.toString() : checkError.getConstructorName(reason);</span>
+    }
+&nbsp;
+    // Grab these first, before we modify `Assertion.prototype`.
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var propertyNames = Object.getOwnPropertyNames(Assertion.prototype);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var propertyDescs = {};</span>
+<span class="cstat-no" title="statement not covered" >    propertyNames.forEach(<span class="fstat-no" title="function not covered" >function (name) {</span></span>
+<span class="cstat-no" title="statement not covered" >        propertyDescs[name] = Object.getOwnPropertyDescriptor(Assertion.prototype, name);</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    property("fulfilled", <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        var that = this;</span>
+<span class="cstat-no" title="statement not covered" >        var derivedPromise = getBasePromise(that).then(</span>
+<span class="fstat-no" title="function not covered" >            function (value) {</span>
+<span class="cstat-no" title="statement not covered" >                assertIfNegated(that,</span>
+                                "expected promise not to be fulfilled but it was fulfilled with #{act}",
+                                { actual: value });
+<span class="cstat-no" title="statement not covered" >                return value;</span>
+            },
+<span class="fstat-no" title="function not covered" >            function (reason) {</span>
+<span class="cstat-no" title="statement not covered" >                assertIfNotNegated(that,</span>
+                                   "expected promise to be fulfilled but it was rejected with #{act}",
+                                   { actual: getReasonName(reason) });
+<span class="cstat-no" title="statement not covered" >                return reason;</span>
+            }
+        );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        module.exports.transferPromiseness(that, derivedPromise);</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    property("rejected", <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        var that = this;</span>
+<span class="cstat-no" title="statement not covered" >        var derivedPromise = getBasePromise(that).then(</span>
+<span class="fstat-no" title="function not covered" >            function (value) {</span>
+<span class="cstat-no" title="statement not covered" >                assertIfNotNegated(that,</span>
+                                   "expected promise to be rejected but it was fulfilled with #{act}",
+                                   { actual: value });
+<span class="cstat-no" title="statement not covered" >                return value;</span>
+            },
+<span class="fstat-no" title="function not covered" >            function (reason) {</span>
+<span class="cstat-no" title="statement not covered" >                assertIfNegated(that,</span>
+                                "expected promise not to be rejected but it was rejected with #{act}",
+                                { actual: getReasonName(reason) });
+&nbsp;
+                // Return the reason, transforming this into a fulfillment, to allow further assertions, e.g.
+                // `promise.should.be.rejected.and.eventually.equal("reason")`.
+<span class="cstat-no" title="statement not covered" >                return reason;</span>
+            }
+        );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        module.exports.transferPromiseness(that, derivedPromise);</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    method("rejectedWith", <span class="fstat-no" title="function not covered" >function (errorLike, errMsgMatcher, message) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var errorLikeName = null;</span>
+<span class="cstat-no" title="statement not covered" >        var negate = utils.flag(this, "negate") || false;</span>
+&nbsp;
+        // rejectedWith with that is called without arguments is
+        // the same as a plain ".rejected" use.
+<span class="cstat-no" title="statement not covered" >        if (errorLike === undefined &amp;&amp; errMsgMatcher === undefined &amp;&amp;</span>
+            message === undefined) {
+            /* jshint expr: true */
+<span class="cstat-no" title="statement not covered" >            this.rejected;</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (message !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >            utils.flag(this, "message", message);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (errorLike instanceof RegExp || typeof errorLike === "string") {</span>
+<span class="cstat-no" title="statement not covered" >            errMsgMatcher = errorLike;</span>
+<span class="cstat-no" title="statement not covered" >            errorLike = null;</span>
+        } else <span class="cstat-no" title="statement not covered" >if (errorLike &amp;&amp; errorLike instanceof Error) {</span>
+<span class="cstat-no" title="statement not covered" >            errorLikeName = errorLike.toString();</span>
+        } else <span class="cstat-no" title="statement not covered" >if (typeof errorLike === "function") {</span>
+<span class="cstat-no" title="statement not covered" >            errorLikeName = checkError.getConstructorName(errorLike);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            errorLike = null;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        var everyArgIsDefined = Boolean(errorLike &amp;&amp; errMsgMatcher);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var matcherRelation = "including";</span>
+<span class="cstat-no" title="statement not covered" >        if (errMsgMatcher instanceof RegExp) {</span>
+<span class="cstat-no" title="statement not covered" >            matcherRelation = "matching";</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var that = this;</span>
+<span class="cstat-no" title="statement not covered" >        var derivedPromise = getBasePromise(that).then(</span>
+<span class="fstat-no" title="function not covered" >            function (value) {</span>
+<span class="cstat-no" title="statement not covered" >                var assertionMessage = null;</span>
+<span class="cstat-no" title="statement not covered" >                var expected = null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (errorLike) {</span>
+<span class="cstat-no" title="statement not covered" >                    assertionMessage = "expected promise to be rejected with #{exp} but it was fulfilled with " +</span>
+                                       "#{act}";
+<span class="cstat-no" title="statement not covered" >                    expected = errorLikeName;</span>
+                } else <span class="cstat-no" title="statement not covered" >if (errMsgMatcher) {</span>
+<span class="cstat-no" title="statement not covered" >                    assertionMessage = "expected promise to be rejected with an error " + matcherRelation +</span>
+                        " #{exp} but it was fulfilled with #{act}";
+<span class="cstat-no" title="statement not covered" >                    expected = errMsgMatcher;</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                assertIfNotNegated(that, assertionMessage, { expected: expected, actual: value });</span>
+<span class="cstat-no" title="statement not covered" >                return value;</span>
+            },
+<span class="fstat-no" title="function not covered" >            function (reason) {</span>
+<span class="cstat-no" title="statement not covered" >                var errorLikeCompatible = errorLike &amp;&amp; (errorLike instanceof Error ?</span>
+                                                        checkError.compatibleInstance(reason, errorLike) :
+                                                        checkError.compatibleConstructor(reason, errorLike));
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var errMsgMatcherCompatible = errMsgMatcher &amp;&amp; checkError.compatibleMessage(reason, errMsgMatcher);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var reasonName = getReasonName(reason);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (negate &amp;&amp; everyArgIsDefined) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (errorLikeCompatible &amp;&amp; errMsgMatcherCompatible) {</span>
+<span class="cstat-no" title="statement not covered" >                        that.assert(true,</span>
+                                    null,
+                                    "expected promise not to be rejected with #{exp} but it was rejected " +
+                                    "with #{act}",
+                                    errorLikeName,
+                                    reasonName);
+                    }
+                }
+                else {
+<span class="cstat-no" title="statement not covered" >                    if (errorLike) {</span>
+<span class="cstat-no" title="statement not covered" >                        that.assert(errorLikeCompatible,</span>
+                                    "expected promise to be rejected with #{exp} but it was rejected with #{act}",
+                                    "expected promise not to be rejected with #{exp} but it was rejected " +
+                                    "with #{act}",
+                                    errorLikeName,
+                                    reasonName);
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (errMsgMatcher) {</span>
+<span class="cstat-no" title="statement not covered" >                        that.assert(errMsgMatcherCompatible,</span>
+                                    "expected promise to be rejected with an error " + matcherRelation +
+                                    " #{exp} but got #{act}",
+                                    "expected promise not to be rejected with an error " + matcherRelation +
+                                    " #{exp}",
+                                    errMsgMatcher,
+                                    checkError.getMessage(reason));
+                    }
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return reason;</span>
+            }
+        );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        module.exports.transferPromiseness(that, derivedPromise);</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    property("eventually", <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        utils.flag(this, "eventually", true);</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    method("notify", <span class="fstat-no" title="function not covered" >function (done) {</span></span>
+<span class="cstat-no" title="statement not covered" >        doNotify(getBasePromise(this), done);</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    method("become", <span class="fstat-no" title="function not covered" >function (value, message) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return this.eventually.deep.equal(value, message);</span>
+    });
+&nbsp;
+    ////////
+    // `eventually`
+&nbsp;
+    // We need to be careful not to trigger any getters, thus `Object.getOwnPropertyDescriptor` usage.
+<span class="cstat-no" title="statement not covered" >    var methodNames = propertyNames.filter(<span class="fstat-no" title="function not covered" >function (name) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return name !== "assert" &amp;&amp; typeof propertyDescs[name].value === "function";</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    methodNames.forEach(<span class="fstat-no" title="function not covered" >function (methodName) {</span></span>
+<span class="cstat-no" title="statement not covered" >        Assertion.overwriteMethod(methodName, <span class="fstat-no" title="function not covered" >function (originalMethod) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                doAsserterAsyncAndAddThen(originalMethod, this, arguments);</span>
+            };
+        });
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var getterNames = propertyNames.filter(<span class="fstat-no" title="function not covered" >function (name) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return name !== "_obj" &amp;&amp; typeof propertyDescs[name].get === "function";</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    getterNames.forEach(<span class="fstat-no" title="function not covered" >function (getterName) {</span></span>
+        // Chainable methods are things like `an`, which can work both for `.should.be.an.instanceOf` and as
+        // `should.be.an("object")`. We need to handle those specially.
+<span class="cstat-no" title="statement not covered" >        var isChainableMethod = Assertion.prototype.__methods.hasOwnProperty(getterName);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (isChainableMethod) {</span>
+<span class="cstat-no" title="statement not covered" >            Assertion.overwriteChainableMethod(</span>
+                getterName,
+<span class="fstat-no" title="function not covered" >                function (originalMethod) {</span>
+<span class="cstat-no" title="statement not covered" >                    return <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                        doAsserterAsyncAndAddThen(originalMethod, this, arguments);</span>
+                    };
+                },
+<span class="fstat-no" title="function not covered" >                function (originalGetter) {</span>
+<span class="cstat-no" title="statement not covered" >                    return <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                        doAsserterAsyncAndAddThen(originalGetter, this);</span>
+                    };
+                }
+            );
+        } else {
+<span class="cstat-no" title="statement not covered" >            Assertion.overwriteProperty(getterName, <span class="fstat-no" title="function not covered" >function (originalGetter) {</span></span>
+<span class="cstat-no" title="statement not covered" >                return <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                    doAsserterAsyncAndAddThen(originalGetter, this);</span>
+                };
+            });
+        }
+    });
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function doAsserterAsyncAndAddThen(asserter, assertion, args) {</span>
+        // Since we're intercepting all methods/properties, we need to just pass through if they don't want
+        // `eventually`, or if we've already fulfilled the promise (see below).
+<span class="cstat-no" title="statement not covered" >        if (!utils.flag(assertion, "eventually")) {</span>
+<span class="cstat-no" title="statement not covered" >            return asserter.apply(assertion, args);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var derivedPromise = getBasePromise(assertion).then(<span class="fstat-no" title="function not covered" >function (value) {</span></span>
+            // Set up the environment for the asserter to actually run: `_obj` should be the fulfillment value, and
+            // now that we have the value, we're no longer in "eventually" mode, so we won't run any of this code,
+            // just the base Chai code that we get to via the short-circuit above.
+<span class="cstat-no" title="statement not covered" >            assertion._obj = value;</span>
+<span class="cstat-no" title="statement not covered" >            utils.flag(assertion, "eventually", false);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return args ? module.exports.transformAsserterArgs(args) : args;</span>
+        }).then(<span class="fstat-no" title="function not covered" >function (args) {</span>
+<span class="cstat-no" title="statement not covered" >            asserter.apply(assertion, args);</span>
+&nbsp;
+            // Because asserters, for example `property`, can change the value of `_obj` (i.e. change the "object"
+            // flag), we need to communicate this value change to subsequent chained asserters. Since we build a
+            // promise chain paralleling the asserter chain, we can use it to communicate such changes.
+<span class="cstat-no" title="statement not covered" >            return assertion._obj;</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        module.exports.transferPromiseness(assertion, derivedPromise);</span>
+    }
+&nbsp;
+    ///////
+    // Now use the `Assertion` framework to build an `assert` interface.
+<span class="cstat-no" title="statement not covered" >    var originalAssertMethods = Object.getOwnPropertyNames(assert).filter(<span class="fstat-no" title="function not covered" >function (propName) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return typeof assert[propName] === "function";</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    assert.isFulfilled = <span class="fstat-no" title="function not covered" >function (promise, message) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return (new Assertion(promise, message)).to.be.fulfilled;</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    assert.isRejected = <span class="fstat-no" title="function not covered" >function (promise, errorLike, errMsgMatcher, message) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var assertion = (new Assertion(promise, message));</span>
+<span class="cstat-no" title="statement not covered" >        return assertion.to.be.rejectedWith(errorLike, errMsgMatcher, message);</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    assert.becomes = <span class="fstat-no" title="function not covered" >function (promise, value, message) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return assert.eventually.deepEqual(promise, value, message);</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    assert.doesNotBecome = <span class="fstat-no" title="function not covered" >function (promise, value, message) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return assert.eventually.notDeepEqual(promise, value, message);</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    assert.eventually = {};</span>
+<span class="cstat-no" title="statement not covered" >    originalAssertMethods.forEach(<span class="fstat-no" title="function not covered" >function (assertMethodName) {</span></span>
+<span class="cstat-no" title="statement not covered" >        assert.eventually[assertMethodName] = <span class="fstat-no" title="function not covered" >function (promise) {</span></span>
+<span class="cstat-no" title="statement not covered" >            var otherArgs = Array.prototype.slice.call(arguments, 1);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var customRejectionHandler;</span>
+<span class="cstat-no" title="statement not covered" >            var message = arguments[assert[assertMethodName].length - 1];</span>
+<span class="cstat-no" title="statement not covered" >            if (typeof message === "string") {</span>
+<span class="cstat-no" title="statement not covered" >                customRejectionHandler = <span class="fstat-no" title="function not covered" >function (reason) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    throw new chai.AssertionError(message + "\n\nOriginal reason: " + utils.inspect(reason));</span>
+                };
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var returnedPromise = promise.then(</span>
+<span class="fstat-no" title="function not covered" >                function (fulfillmentValue) {</span>
+<span class="cstat-no" title="statement not covered" >                    return assert[assertMethodName].apply(assert, [fulfillmentValue].concat(otherArgs));</span>
+                },
+                customRejectionHandler
+            );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            returnedPromise.notify = <span class="fstat-no" title="function not covered" >function (done) {</span></span>
+<span class="cstat-no" title="statement not covered" >                doNotify(returnedPromise, done);</span>
+            };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return returnedPromise;</span>
+        };
+    });
+};
+&nbsp;
+module.exports.transferPromiseness = <span class="fstat-no" title="function not covered" >function (assertion, promise) {</span>
+<span class="cstat-no" title="statement not covered" >    assertion.then = promise.then.bind(promise);</span>
+};
+&nbsp;
+module.exports.transformAsserterArgs = <span class="fstat-no" title="function not covered" >function (values) {</span>
+<span class="cstat-no" title="statement not covered" >    return values;</span>
+};
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 13:07:00 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>
