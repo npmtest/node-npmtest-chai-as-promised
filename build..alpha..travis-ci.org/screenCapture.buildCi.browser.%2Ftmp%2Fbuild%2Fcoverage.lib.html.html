@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Code coverage report for node-npmtest-chai-as-promised/chai-as-promised/lib/chai-as-promised.js</title>
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-chai-as-promised/node_modules/chai-as-promised/lib/chai-as-promised.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -194,7 +192,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-chai-as-promised">npmtest-chai-as-promised (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-chai-as-promised/chai-as-promised/lib/chai-as-promised.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-chai-as-promised/node_modules/chai-as-promised/lib/chai-as-promised.js</span></h1>
     <h2>
         
         Statements: <span class="metric">8.75% <small>(14 / 160)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-chai-as-promised/chai-as-promised/lib/</a> &#187; chai-as-promised.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-chai-as-promised/node_modules/chai-as-promised/lib/</a> » chai-as-promised.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -967,21 +965,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
 var checkError = require("check-error");
 &nbsp;
-module.exports = <span class="fstat-no" title="function not covered" >function (chai, utils) {</span>
-<span class="cstat-no" title="statement not covered" >    var Assertion = chai.Assertion;</span>
-<span class="cstat-no" title="statement not covered" >    var assert = chai.assert;</span>
+module.exports = <span class="fstat-no" title="function not covered">function (chai, utils) {</span>
+<span class="cstat-no" title="statement not covered">    var Assertion = chai.Assertion;</span>
+<span class="cstat-no" title="statement not covered">    var assert = chai.assert;</span>
 &nbsp;
     // If we are using a version of Chai that has checkError on it,
     // we want to use that version to be consistent. Otherwise, we use
     // what was passed to the factory.
-<span class="cstat-no" title="statement not covered" >    if (utils.checkError) {</span>
-<span class="cstat-no" title="statement not covered" >        checkError = utils.checkError;</span>
+<span class="cstat-no" title="statement not covered">    if (utils.checkError) {</span>
+<span class="cstat-no" title="statement not covered">        checkError = utils.checkError;</span>
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function isLegacyJQueryPromise(thenable) {</span>
+<span class="fstat-no" title="function not covered">    function isLegacyJQueryPromise(thenable) {</span>
         // jQuery promises are Promises/A+-compatible since 3.0.0. jQuery 3.0.0 is also the first version
         // to define the catch method.
-<span class="cstat-no" title="statement not covered" >        return typeof thenable.catch !== "function" &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered">        return typeof thenable.catch !== "function" &amp;&amp;</span>
                typeof thenable.always === "function" &amp;&amp;
                typeof thenable.done === "function" &amp;&amp;
                typeof thenable.fail === "function" &amp;&amp;
@@ -990,173 +988,173 @@ module.exports = <span class="fstat-no" title="function not covered" >function (
                typeof thenable.state === "function";
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function assertIsAboutPromise(assertion) {</span>
-<span class="cstat-no" title="statement not covered" >        if (typeof assertion._obj.then !== "function") {</span>
-<span class="cstat-no" title="statement not covered" >            throw new TypeError(utils.inspect(assertion._obj) + " is not a thenable.");</span>
+<span class="fstat-no" title="function not covered">    function assertIsAboutPromise(assertion) {</span>
+<span class="cstat-no" title="statement not covered">        if (typeof assertion._obj.then !== "function") {</span>
+<span class="cstat-no" title="statement not covered">            throw new TypeError(utils.inspect(assertion._obj) + " is not a thenable.");</span>
         }
-<span class="cstat-no" title="statement not covered" >        if (isLegacyJQueryPromise(assertion._obj)) {</span>
-<span class="cstat-no" title="statement not covered" >            throw new TypeError("Chai as Promised is incompatible with thenables of jQuery&lt;3.0.0, sorry! Please " +</span>
+<span class="cstat-no" title="statement not covered">        if (isLegacyJQueryPromise(assertion._obj)) {</span>
+<span class="cstat-no" title="statement not covered">            throw new TypeError("Chai as Promised is incompatible with thenables of jQuery&lt;3.0.0, sorry! Please " +</span>
                                 "upgrade jQuery or use another Promises/A+ compatible library (see " +
                                 "http://promisesaplus.com/).");
         }
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function method(name, asserter) {</span>
-<span class="cstat-no" title="statement not covered" >        utils.addMethod(Assertion.prototype, name, <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >            assertIsAboutPromise(this);</span>
-<span class="cstat-no" title="statement not covered" >            return asserter.apply(this, arguments);</span>
+<span class="fstat-no" title="function not covered">    function method(name, asserter) {</span>
+<span class="cstat-no" title="statement not covered">        utils.addMethod(Assertion.prototype, name, <span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="cstat-no" title="statement not covered">            assertIsAboutPromise(this);</span>
+<span class="cstat-no" title="statement not covered">            return asserter.apply(this, arguments);</span>
         });
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function property(name, asserter) {</span>
-<span class="cstat-no" title="statement not covered" >        utils.addProperty(Assertion.prototype, name, <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >            assertIsAboutPromise(this);</span>
-<span class="cstat-no" title="statement not covered" >            return asserter.apply(this, arguments);</span>
+<span class="fstat-no" title="function not covered">    function property(name, asserter) {</span>
+<span class="cstat-no" title="statement not covered">        utils.addProperty(Assertion.prototype, name, <span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="cstat-no" title="statement not covered">            assertIsAboutPromise(this);</span>
+<span class="cstat-no" title="statement not covered">            return asserter.apply(this, arguments);</span>
         });
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function doNotify(promise, done) {</span>
-<span class="cstat-no" title="statement not covered" >        promise.then(<span class="fstat-no" title="function not covered" >function () {</span> <span class="cstat-no" title="statement not covered" >done(); </span>}, done);</span>
+<span class="fstat-no" title="function not covered">    function doNotify(promise, done) {</span>
+<span class="cstat-no" title="statement not covered">        promise.then(<span class="fstat-no" title="function not covered">function () {</span> <span class="cstat-no" title="statement not covered">done(); </span>}, done);</span>
     }
 &nbsp;
     // These are for clarity and to bypass Chai refusing to allow `undefined` as actual when used with `assert`.
-<span class="fstat-no" title="function not covered" >    function assertIfNegated(assertion, message, extra) {</span>
-<span class="cstat-no" title="statement not covered" >        assertion.assert(true, null, message, extra.expected, extra.actual);</span>
+<span class="fstat-no" title="function not covered">    function assertIfNegated(assertion, message, extra) {</span>
+<span class="cstat-no" title="statement not covered">        assertion.assert(true, null, message, extra.expected, extra.actual);</span>
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function assertIfNotNegated(assertion, message, extra) {</span>
-<span class="cstat-no" title="statement not covered" >        assertion.assert(false, message, null, extra.expected, extra.actual);</span>
+<span class="fstat-no" title="function not covered">    function assertIfNotNegated(assertion, message, extra) {</span>
+<span class="cstat-no" title="statement not covered">        assertion.assert(false, message, null, extra.expected, extra.actual);</span>
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function getBasePromise(assertion) {</span>
+<span class="fstat-no" title="function not covered">    function getBasePromise(assertion) {</span>
         // We need to chain subsequent asserters on top of ones in the chain already (consider
         // `eventually.have.property("foo").that.equals("bar")`), only running them after the existing ones pass.
         // So the first base-promise is `assertion._obj`, but after that we use the assertions themselves, i.e.
         // previously derived promises, to chain off of.
-<span class="cstat-no" title="statement not covered" >        return typeof assertion.then === "function" ? assertion : assertion._obj;</span>
+<span class="cstat-no" title="statement not covered">        return typeof assertion.then === "function" ? assertion : assertion._obj;</span>
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function getReasonName(reason) {</span>
-<span class="cstat-no" title="statement not covered" >        return (reason instanceof Error) ? reason.toString() : checkError.getConstructorName(reason);</span>
+<span class="fstat-no" title="function not covered">    function getReasonName(reason) {</span>
+<span class="cstat-no" title="statement not covered">        return (reason instanceof Error) ? reason.toString() : checkError.getConstructorName(reason);</span>
     }
 &nbsp;
     // Grab these first, before we modify `Assertion.prototype`.
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var propertyNames = Object.getOwnPropertyNames(Assertion.prototype);</span>
+<span class="cstat-no" title="statement not covered">    var propertyNames = Object.getOwnPropertyNames(Assertion.prototype);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var propertyDescs = {};</span>
-<span class="cstat-no" title="statement not covered" >    propertyNames.forEach(<span class="fstat-no" title="function not covered" >function (name) {</span></span>
-<span class="cstat-no" title="statement not covered" >        propertyDescs[name] = Object.getOwnPropertyDescriptor(Assertion.prototype, name);</span>
+<span class="cstat-no" title="statement not covered">    var propertyDescs = {};</span>
+<span class="cstat-no" title="statement not covered">    propertyNames.forEach(<span class="fstat-no" title="function not covered">function (name) {</span></span>
+<span class="cstat-no" title="statement not covered">        propertyDescs[name] = Object.getOwnPropertyDescriptor(Assertion.prototype, name);</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    property("fulfilled", <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >        var that = this;</span>
-<span class="cstat-no" title="statement not covered" >        var derivedPromise = getBasePromise(that).then(</span>
-<span class="fstat-no" title="function not covered" >            function (value) {</span>
-<span class="cstat-no" title="statement not covered" >                assertIfNegated(that,</span>
+<span class="cstat-no" title="statement not covered">    property("fulfilled", <span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="cstat-no" title="statement not covered">        var that = this;</span>
+<span class="cstat-no" title="statement not covered">        var derivedPromise = getBasePromise(that).then(</span>
+<span class="fstat-no" title="function not covered">            function (value) {</span>
+<span class="cstat-no" title="statement not covered">                assertIfNegated(that,</span>
                                 "expected promise not to be fulfilled but it was fulfilled with #{act}",
                                 { actual: value });
-<span class="cstat-no" title="statement not covered" >                return value;</span>
+<span class="cstat-no" title="statement not covered">                return value;</span>
             },
-<span class="fstat-no" title="function not covered" >            function (reason) {</span>
-<span class="cstat-no" title="statement not covered" >                assertIfNotNegated(that,</span>
+<span class="fstat-no" title="function not covered">            function (reason) {</span>
+<span class="cstat-no" title="statement not covered">                assertIfNotNegated(that,</span>
                                    "expected promise to be fulfilled but it was rejected with #{act}",
                                    { actual: getReasonName(reason) });
-<span class="cstat-no" title="statement not covered" >                return reason;</span>
+<span class="cstat-no" title="statement not covered">                return reason;</span>
             }
         );
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        module.exports.transferPromiseness(that, derivedPromise);</span>
+<span class="cstat-no" title="statement not covered">        module.exports.transferPromiseness(that, derivedPromise);</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    property("rejected", <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >        var that = this;</span>
-<span class="cstat-no" title="statement not covered" >        var derivedPromise = getBasePromise(that).then(</span>
-<span class="fstat-no" title="function not covered" >            function (value) {</span>
-<span class="cstat-no" title="statement not covered" >                assertIfNotNegated(that,</span>
+<span class="cstat-no" title="statement not covered">    property("rejected", <span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="cstat-no" title="statement not covered">        var that = this;</span>
+<span class="cstat-no" title="statement not covered">        var derivedPromise = getBasePromise(that).then(</span>
+<span class="fstat-no" title="function not covered">            function (value) {</span>
+<span class="cstat-no" title="statement not covered">                assertIfNotNegated(that,</span>
                                    "expected promise to be rejected but it was fulfilled with #{act}",
                                    { actual: value });
-<span class="cstat-no" title="statement not covered" >                return value;</span>
+<span class="cstat-no" title="statement not covered">                return value;</span>
             },
-<span class="fstat-no" title="function not covered" >            function (reason) {</span>
-<span class="cstat-no" title="statement not covered" >                assertIfNegated(that,</span>
+<span class="fstat-no" title="function not covered">            function (reason) {</span>
+<span class="cstat-no" title="statement not covered">                assertIfNegated(that,</span>
                                 "expected promise not to be rejected but it was rejected with #{act}",
                                 { actual: getReasonName(reason) });
 &nbsp;
                 // Return the reason, transforming this into a fulfillment, to allow further assertions, e.g.
                 // `promise.should.be.rejected.and.eventually.equal("reason")`.
-<span class="cstat-no" title="statement not covered" >                return reason;</span>
+<span class="cstat-no" title="statement not covered">                return reason;</span>
             }
         );
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        module.exports.transferPromiseness(that, derivedPromise);</span>
+<span class="cstat-no" title="statement not covered">        module.exports.transferPromiseness(that, derivedPromise);</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    method("rejectedWith", <span class="fstat-no" title="function not covered" >function (errorLike, errMsgMatcher, message) {</span></span>
-<span class="cstat-no" title="statement not covered" >        var errorLikeName = null;</span>
-<span class="cstat-no" title="statement not covered" >        var negate = utils.flag(this, "negate") || false;</span>
+<span class="cstat-no" title="statement not covered">    method("rejectedWith", <span class="fstat-no" title="function not covered">function (errorLike, errMsgMatcher, message) {</span></span>
+<span class="cstat-no" title="statement not covered">        var errorLikeName = null;</span>
+<span class="cstat-no" title="statement not covered">        var negate = utils.flag(this, "negate") || false;</span>
 &nbsp;
         // rejectedWith with that is called without arguments is
         // the same as a plain ".rejected" use.
-<span class="cstat-no" title="statement not covered" >        if (errorLike === undefined &amp;&amp; errMsgMatcher === undefined &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered">        if (errorLike === undefined &amp;&amp; errMsgMatcher === undefined &amp;&amp;</span>
             message === undefined) {
             /* jshint expr: true */
-<span class="cstat-no" title="statement not covered" >            this.rejected;</span>
-<span class="cstat-no" title="statement not covered" >            return;</span>
+<span class="cstat-no" title="statement not covered">            this.rejected;</span>
+<span class="cstat-no" title="statement not covered">            return;</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if (message !== undefined) {</span>
-<span class="cstat-no" title="statement not covered" >            utils.flag(this, "message", message);</span>
+<span class="cstat-no" title="statement not covered">        if (message !== undefined) {</span>
+<span class="cstat-no" title="statement not covered">            utils.flag(this, "message", message);</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if (errorLike instanceof RegExp || typeof errorLike === "string") {</span>
-<span class="cstat-no" title="statement not covered" >            errMsgMatcher = errorLike;</span>
-<span class="cstat-no" title="statement not covered" >            errorLike = null;</span>
-        } else <span class="cstat-no" title="statement not covered" >if (errorLike &amp;&amp; errorLike instanceof Error) {</span>
-<span class="cstat-no" title="statement not covered" >            errorLikeName = errorLike.toString();</span>
-        } else <span class="cstat-no" title="statement not covered" >if (typeof errorLike === "function") {</span>
-<span class="cstat-no" title="statement not covered" >            errorLikeName = checkError.getConstructorName(errorLike);</span>
+<span class="cstat-no" title="statement not covered">        if (errorLike instanceof RegExp || typeof errorLike === "string") {</span>
+<span class="cstat-no" title="statement not covered">            errMsgMatcher = errorLike;</span>
+<span class="cstat-no" title="statement not covered">            errorLike = null;</span>
+        } else <span class="cstat-no" title="statement not covered">if (errorLike &amp;&amp; errorLike instanceof Error) {</span>
+<span class="cstat-no" title="statement not covered">            errorLikeName = errorLike.toString();</span>
+        } else <span class="cstat-no" title="statement not covered">if (typeof errorLike === "function") {</span>
+<span class="cstat-no" title="statement not covered">            errorLikeName = checkError.getConstructorName(errorLike);</span>
         } else {
-<span class="cstat-no" title="statement not covered" >            errorLike = null;</span>
+<span class="cstat-no" title="statement not covered">            errorLike = null;</span>
         }
-<span class="cstat-no" title="statement not covered" >        var everyArgIsDefined = Boolean(errorLike &amp;&amp; errMsgMatcher);</span>
+<span class="cstat-no" title="statement not covered">        var everyArgIsDefined = Boolean(errorLike &amp;&amp; errMsgMatcher);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        var matcherRelation = "including";</span>
-<span class="cstat-no" title="statement not covered" >        if (errMsgMatcher instanceof RegExp) {</span>
-<span class="cstat-no" title="statement not covered" >            matcherRelation = "matching";</span>
+<span class="cstat-no" title="statement not covered">        var matcherRelation = "including";</span>
+<span class="cstat-no" title="statement not covered">        if (errMsgMatcher instanceof RegExp) {</span>
+<span class="cstat-no" title="statement not covered">            matcherRelation = "matching";</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        var that = this;</span>
-<span class="cstat-no" title="statement not covered" >        var derivedPromise = getBasePromise(that).then(</span>
-<span class="fstat-no" title="function not covered" >            function (value) {</span>
-<span class="cstat-no" title="statement not covered" >                var assertionMessage = null;</span>
-<span class="cstat-no" title="statement not covered" >                var expected = null;</span>
+<span class="cstat-no" title="statement not covered">        var that = this;</span>
+<span class="cstat-no" title="statement not covered">        var derivedPromise = getBasePromise(that).then(</span>
+<span class="fstat-no" title="function not covered">            function (value) {</span>
+<span class="cstat-no" title="statement not covered">                var assertionMessage = null;</span>
+<span class="cstat-no" title="statement not covered">                var expected = null;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                if (errorLike) {</span>
-<span class="cstat-no" title="statement not covered" >                    assertionMessage = "expected promise to be rejected with #{exp} but it was fulfilled with " +</span>
+<span class="cstat-no" title="statement not covered">                if (errorLike) {</span>
+<span class="cstat-no" title="statement not covered">                    assertionMessage = "expected promise to be rejected with #{exp} but it was fulfilled with " +</span>
                                        "#{act}";
-<span class="cstat-no" title="statement not covered" >                    expected = errorLikeName;</span>
-                } else <span class="cstat-no" title="statement not covered" >if (errMsgMatcher) {</span>
-<span class="cstat-no" title="statement not covered" >                    assertionMessage = "expected promise to be rejected with an error " + matcherRelation +</span>
+<span class="cstat-no" title="statement not covered">                    expected = errorLikeName;</span>
+                } else <span class="cstat-no" title="statement not covered">if (errMsgMatcher) {</span>
+<span class="cstat-no" title="statement not covered">                    assertionMessage = "expected promise to be rejected with an error " + matcherRelation +</span>
                         " #{exp} but it was fulfilled with #{act}";
-<span class="cstat-no" title="statement not covered" >                    expected = errMsgMatcher;</span>
+<span class="cstat-no" title="statement not covered">                    expected = errMsgMatcher;</span>
                 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                assertIfNotNegated(that, assertionMessage, { expected: expected, actual: value });</span>
-<span class="cstat-no" title="statement not covered" >                return value;</span>
+<span class="cstat-no" title="statement not covered">                assertIfNotNegated(that, assertionMessage, { expected: expected, actual: value });</span>
+<span class="cstat-no" title="statement not covered">                return value;</span>
             },
-<span class="fstat-no" title="function not covered" >            function (reason) {</span>
-<span class="cstat-no" title="statement not covered" >                var errorLikeCompatible = errorLike &amp;&amp; (errorLike instanceof Error ?</span>
+<span class="fstat-no" title="function not covered">            function (reason) {</span>
+<span class="cstat-no" title="statement not covered">                var errorLikeCompatible = errorLike &amp;&amp; (errorLike instanceof Error ?</span>
                                                         checkError.compatibleInstance(reason, errorLike) :
                                                         checkError.compatibleConstructor(reason, errorLike));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                var errMsgMatcherCompatible = errMsgMatcher &amp;&amp; checkError.compatibleMessage(reason, errMsgMatcher);</span>
+<span class="cstat-no" title="statement not covered">                var errMsgMatcherCompatible = errMsgMatcher &amp;&amp; checkError.compatibleMessage(reason, errMsgMatcher);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                var reasonName = getReasonName(reason);</span>
+<span class="cstat-no" title="statement not covered">                var reasonName = getReasonName(reason);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                if (negate &amp;&amp; everyArgIsDefined) {</span>
-<span class="cstat-no" title="statement not covered" >                    if (errorLikeCompatible &amp;&amp; errMsgMatcherCompatible) {</span>
-<span class="cstat-no" title="statement not covered" >                        that.assert(true,</span>
+<span class="cstat-no" title="statement not covered">                if (negate &amp;&amp; everyArgIsDefined) {</span>
+<span class="cstat-no" title="statement not covered">                    if (errorLikeCompatible &amp;&amp; errMsgMatcherCompatible) {</span>
+<span class="cstat-no" title="statement not covered">                        that.assert(true,</span>
                                     null,
                                     "expected promise not to be rejected with #{exp} but it was rejected " +
                                     "with #{act}",
@@ -1165,8 +1163,8 @@ module.exports = <span class="fstat-no" title="function not covered" >function (
                     }
                 }
                 else {
-<span class="cstat-no" title="statement not covered" >                    if (errorLike) {</span>
-<span class="cstat-no" title="statement not covered" >                        that.assert(errorLikeCompatible,</span>
+<span class="cstat-no" title="statement not covered">                    if (errorLike) {</span>
+<span class="cstat-no" title="statement not covered">                        that.assert(errorLikeCompatible,</span>
                                     "expected promise to be rejected with #{exp} but it was rejected with #{act}",
                                     "expected promise not to be rejected with #{exp} but it was rejected " +
                                     "with #{act}",
@@ -1174,8 +1172,8 @@ module.exports = <span class="fstat-no" title="function not covered" >function (
                                     reasonName);
                     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                    if (errMsgMatcher) {</span>
-<span class="cstat-no" title="statement not covered" >                        that.assert(errMsgMatcherCompatible,</span>
+<span class="cstat-no" title="statement not covered">                    if (errMsgMatcher) {</span>
+<span class="cstat-no" title="statement not covered">                        that.assert(errMsgMatcherCompatible,</span>
                                     "expected promise to be rejected with an error " + matcherRelation +
                                     " #{exp} but got #{act}",
                                     "expected promise not to be rejected with an error " + matcherRelation +
@@ -1185,165 +1183,166 @@ module.exports = <span class="fstat-no" title="function not covered" >function (
                     }
                 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                return reason;</span>
+<span class="cstat-no" title="statement not covered">                return reason;</span>
             }
         );
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        module.exports.transferPromiseness(that, derivedPromise);</span>
+<span class="cstat-no" title="statement not covered">        module.exports.transferPromiseness(that, derivedPromise);</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    property("eventually", <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >        utils.flag(this, "eventually", true);</span>
+<span class="cstat-no" title="statement not covered">    property("eventually", <span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="cstat-no" title="statement not covered">        utils.flag(this, "eventually", true);</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    method("notify", <span class="fstat-no" title="function not covered" >function (done) {</span></span>
-<span class="cstat-no" title="statement not covered" >        doNotify(getBasePromise(this), done);</span>
+<span class="cstat-no" title="statement not covered">    method("notify", <span class="fstat-no" title="function not covered">function (done) {</span></span>
+<span class="cstat-no" title="statement not covered">        doNotify(getBasePromise(this), done);</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    method("become", <span class="fstat-no" title="function not covered" >function (value, message) {</span></span>
-<span class="cstat-no" title="statement not covered" >        return this.eventually.deep.equal(value, message);</span>
+<span class="cstat-no" title="statement not covered">    method("become", <span class="fstat-no" title="function not covered">function (value, message) {</span></span>
+<span class="cstat-no" title="statement not covered">        return this.eventually.deep.equal(value, message);</span>
     });
 &nbsp;
     ////////
     // `eventually`
 &nbsp;
     // We need to be careful not to trigger any getters, thus `Object.getOwnPropertyDescriptor` usage.
-<span class="cstat-no" title="statement not covered" >    var methodNames = propertyNames.filter(<span class="fstat-no" title="function not covered" >function (name) {</span></span>
-<span class="cstat-no" title="statement not covered" >        return name !== "assert" &amp;&amp; typeof propertyDescs[name].value === "function";</span>
+<span class="cstat-no" title="statement not covered">    var methodNames = propertyNames.filter(<span class="fstat-no" title="function not covered">function (name) {</span></span>
+<span class="cstat-no" title="statement not covered">        return name !== "assert" &amp;&amp; typeof propertyDescs[name].value === "function";</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    methodNames.forEach(<span class="fstat-no" title="function not covered" >function (methodName) {</span></span>
-<span class="cstat-no" title="statement not covered" >        Assertion.overwriteMethod(methodName, <span class="fstat-no" title="function not covered" >function (originalMethod) {</span></span>
-<span class="cstat-no" title="statement not covered" >            return <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >                doAsserterAsyncAndAddThen(originalMethod, this, arguments);</span>
+<span class="cstat-no" title="statement not covered">    methodNames.forEach(<span class="fstat-no" title="function not covered">function (methodName) {</span></span>
+<span class="cstat-no" title="statement not covered">        Assertion.overwriteMethod(methodName, <span class="fstat-no" title="function not covered">function (originalMethod) {</span></span>
+<span class="cstat-no" title="statement not covered">            return <span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="cstat-no" title="statement not covered">                doAsserterAsyncAndAddThen(originalMethod, this, arguments);</span>
             };
         });
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var getterNames = propertyNames.filter(<span class="fstat-no" title="function not covered" >function (name) {</span></span>
-<span class="cstat-no" title="statement not covered" >        return name !== "_obj" &amp;&amp; typeof propertyDescs[name].get === "function";</span>
+<span class="cstat-no" title="statement not covered">    var getterNames = propertyNames.filter(<span class="fstat-no" title="function not covered">function (name) {</span></span>
+<span class="cstat-no" title="statement not covered">        return name !== "_obj" &amp;&amp; typeof propertyDescs[name].get === "function";</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    getterNames.forEach(<span class="fstat-no" title="function not covered" >function (getterName) {</span></span>
+<span class="cstat-no" title="statement not covered">    getterNames.forEach(<span class="fstat-no" title="function not covered">function (getterName) {</span></span>
         // Chainable methods are things like `an`, which can work both for `.should.be.an.instanceOf` and as
         // `should.be.an("object")`. We need to handle those specially.
-<span class="cstat-no" title="statement not covered" >        var isChainableMethod = Assertion.prototype.__methods.hasOwnProperty(getterName);</span>
+<span class="cstat-no" title="statement not covered">        var isChainableMethod = Assertion.prototype.__methods.hasOwnProperty(getterName);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if (isChainableMethod) {</span>
-<span class="cstat-no" title="statement not covered" >            Assertion.overwriteChainableMethod(</span>
+<span class="cstat-no" title="statement not covered">        if (isChainableMethod) {</span>
+<span class="cstat-no" title="statement not covered">            Assertion.overwriteChainableMethod(</span>
                 getterName,
-<span class="fstat-no" title="function not covered" >                function (originalMethod) {</span>
-<span class="cstat-no" title="statement not covered" >                    return <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >                        doAsserterAsyncAndAddThen(originalMethod, this, arguments);</span>
+<span class="fstat-no" title="function not covered">                function (originalMethod) {</span>
+<span class="cstat-no" title="statement not covered">                    return <span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered">                        doAsserterAsyncAndAddThen(originalMethod, this, arguments);</span>
                     };
                 },
-<span class="fstat-no" title="function not covered" >                function (originalGetter) {</span>
-<span class="cstat-no" title="statement not covered" >                    return <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >                        doAsserterAsyncAndAddThen(originalGetter, this);</span>
+<span class="fstat-no" title="function not covered">                function (originalGetter) {</span>
+<span class="cstat-no" title="statement not covered">                    return <span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered">                        doAsserterAsyncAndAddThen(originalGetter, this);</span>
                     };
                 }
             );
         } else {
-<span class="cstat-no" title="statement not covered" >            Assertion.overwriteProperty(getterName, <span class="fstat-no" title="function not covered" >function (originalGetter) {</span></span>
-<span class="cstat-no" title="statement not covered" >                return <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >                    doAsserterAsyncAndAddThen(originalGetter, this);</span>
+<span class="cstat-no" title="statement not covered">            Assertion.overwriteProperty(getterName, <span class="fstat-no" title="function not covered">function (originalGetter) {</span></span>
+<span class="cstat-no" title="statement not covered">                return <span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="cstat-no" title="statement not covered">                    doAsserterAsyncAndAddThen(originalGetter, this);</span>
                 };
             });
         }
     });
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function doAsserterAsyncAndAddThen(asserter, assertion, args) {</span>
+<span class="fstat-no" title="function not covered">    function doAsserterAsyncAndAddThen(asserter, assertion, args) {</span>
         // Since we're intercepting all methods/properties, we need to just pass through if they don't want
         // `eventually`, or if we've already fulfilled the promise (see below).
-<span class="cstat-no" title="statement not covered" >        if (!utils.flag(assertion, "eventually")) {</span>
-<span class="cstat-no" title="statement not covered" >            return asserter.apply(assertion, args);</span>
+<span class="cstat-no" title="statement not covered">        if (!utils.flag(assertion, "eventually")) {</span>
+<span class="cstat-no" title="statement not covered">            return asserter.apply(assertion, args);</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        var derivedPromise = getBasePromise(assertion).then(<span class="fstat-no" title="function not covered" >function (value) {</span></span>
+<span class="cstat-no" title="statement not covered">        var derivedPromise = getBasePromise(assertion).then(<span class="fstat-no" title="function not covered">function (value) {</span></span>
             // Set up the environment for the asserter to actually run: `_obj` should be the fulfillment value, and
             // now that we have the value, we're no longer in "eventually" mode, so we won't run any of this code,
             // just the base Chai code that we get to via the short-circuit above.
-<span class="cstat-no" title="statement not covered" >            assertion._obj = value;</span>
-<span class="cstat-no" title="statement not covered" >            utils.flag(assertion, "eventually", false);</span>
+<span class="cstat-no" title="statement not covered">            assertion._obj = value;</span>
+<span class="cstat-no" title="statement not covered">            utils.flag(assertion, "eventually", false);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            return args ? module.exports.transformAsserterArgs(args) : args;</span>
-        }).then(<span class="fstat-no" title="function not covered" >function (args) {</span>
-<span class="cstat-no" title="statement not covered" >            asserter.apply(assertion, args);</span>
+<span class="cstat-no" title="statement not covered">            return args ? module.exports.transformAsserterArgs(args) : args;</span>
+        }).then(<span class="fstat-no" title="function not covered">function (args) {</span>
+<span class="cstat-no" title="statement not covered">            asserter.apply(assertion, args);</span>
 &nbsp;
             // Because asserters, for example `property`, can change the value of `_obj` (i.e. change the "object"
             // flag), we need to communicate this value change to subsequent chained asserters. Since we build a
             // promise chain paralleling the asserter chain, we can use it to communicate such changes.
-<span class="cstat-no" title="statement not covered" >            return assertion._obj;</span>
+<span class="cstat-no" title="statement not covered">            return assertion._obj;</span>
         });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        module.exports.transferPromiseness(assertion, derivedPromise);</span>
+<span class="cstat-no" title="statement not covered">        module.exports.transferPromiseness(assertion, derivedPromise);</span>
     }
 &nbsp;
     ///////
     // Now use the `Assertion` framework to build an `assert` interface.
-<span class="cstat-no" title="statement not covered" >    var originalAssertMethods = Object.getOwnPropertyNames(assert).filter(<span class="fstat-no" title="function not covered" >function (propName) {</span></span>
-<span class="cstat-no" title="statement not covered" >        return typeof assert[propName] === "function";</span>
+<span class="cstat-no" title="statement not covered">    var originalAssertMethods = Object.getOwnPropertyNames(assert).filter(<span class="fstat-no" title="function not covered">function (propName) {</span></span>
+<span class="cstat-no" title="statement not covered">        return typeof assert[propName] === "function";</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    assert.isFulfilled = <span class="fstat-no" title="function not covered" >function (promise, message) {</span></span>
-<span class="cstat-no" title="statement not covered" >        return (new Assertion(promise, message)).to.be.fulfilled;</span>
+<span class="cstat-no" title="statement not covered">    assert.isFulfilled = <span class="fstat-no" title="function not covered">function (promise, message) {</span></span>
+<span class="cstat-no" title="statement not covered">        return (new Assertion(promise, message)).to.be.fulfilled;</span>
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    assert.isRejected = <span class="fstat-no" title="function not covered" >function (promise, errorLike, errMsgMatcher, message) {</span></span>
-<span class="cstat-no" title="statement not covered" >        var assertion = (new Assertion(promise, message));</span>
-<span class="cstat-no" title="statement not covered" >        return assertion.to.be.rejectedWith(errorLike, errMsgMatcher, message);</span>
+<span class="cstat-no" title="statement not covered">    assert.isRejected = <span class="fstat-no" title="function not covered">function (promise, errorLike, errMsgMatcher, message) {</span></span>
+<span class="cstat-no" title="statement not covered">        var assertion = (new Assertion(promise, message));</span>
+<span class="cstat-no" title="statement not covered">        return assertion.to.be.rejectedWith(errorLike, errMsgMatcher, message);</span>
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    assert.becomes = <span class="fstat-no" title="function not covered" >function (promise, value, message) {</span></span>
-<span class="cstat-no" title="statement not covered" >        return assert.eventually.deepEqual(promise, value, message);</span>
+<span class="cstat-no" title="statement not covered">    assert.becomes = <span class="fstat-no" title="function not covered">function (promise, value, message) {</span></span>
+<span class="cstat-no" title="statement not covered">        return assert.eventually.deepEqual(promise, value, message);</span>
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    assert.doesNotBecome = <span class="fstat-no" title="function not covered" >function (promise, value, message) {</span></span>
-<span class="cstat-no" title="statement not covered" >        return assert.eventually.notDeepEqual(promise, value, message);</span>
+<span class="cstat-no" title="statement not covered">    assert.doesNotBecome = <span class="fstat-no" title="function not covered">function (promise, value, message) {</span></span>
+<span class="cstat-no" title="statement not covered">        return assert.eventually.notDeepEqual(promise, value, message);</span>
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    assert.eventually = {};</span>
-<span class="cstat-no" title="statement not covered" >    originalAssertMethods.forEach(<span class="fstat-no" title="function not covered" >function (assertMethodName) {</span></span>
-<span class="cstat-no" title="statement not covered" >        assert.eventually[assertMethodName] = <span class="fstat-no" title="function not covered" >function (promise) {</span></span>
-<span class="cstat-no" title="statement not covered" >            var otherArgs = Array.prototype.slice.call(arguments, 1);</span>
+<span class="cstat-no" title="statement not covered">    assert.eventually = {};</span>
+<span class="cstat-no" title="statement not covered">    originalAssertMethods.forEach(<span class="fstat-no" title="function not covered">function (assertMethodName) {</span></span>
+<span class="cstat-no" title="statement not covered">        assert.eventually[assertMethodName] = <span class="fstat-no" title="function not covered">function (promise) {</span></span>
+<span class="cstat-no" title="statement not covered">            var otherArgs = Array.prototype.slice.call(arguments, 1);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            var customRejectionHandler;</span>
-<span class="cstat-no" title="statement not covered" >            var message = arguments[assert[assertMethodName].length - 1];</span>
-<span class="cstat-no" title="statement not covered" >            if (typeof message === "string") {</span>
-<span class="cstat-no" title="statement not covered" >                customRejectionHandler = <span class="fstat-no" title="function not covered" >function (reason) {</span></span>
-<span class="cstat-no" title="statement not covered" >                    throw new chai.AssertionError(message + "\n\nOriginal reason: " + utils.inspect(reason));</span>
+<span class="cstat-no" title="statement not covered">            var customRejectionHandler;</span>
+<span class="cstat-no" title="statement not covered">            var message = arguments[assert[assertMethodName].length - 1];</span>
+<span class="cstat-no" title="statement not covered">            if (typeof message === "string") {</span>
+<span class="cstat-no" title="statement not covered">                customRejectionHandler = <span class="fstat-no" title="function not covered">function (reason) {</span></span>
+<span class="cstat-no" title="statement not covered">                    throw new chai.AssertionError(message + "\n\nOriginal reason: " + utils.inspect(reason));</span>
                 };
             }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            var returnedPromise = promise.then(</span>
-<span class="fstat-no" title="function not covered" >                function (fulfillmentValue) {</span>
-<span class="cstat-no" title="statement not covered" >                    return assert[assertMethodName].apply(assert, [fulfillmentValue].concat(otherArgs));</span>
+<span class="cstat-no" title="statement not covered">            var returnedPromise = promise.then(</span>
+<span class="fstat-no" title="function not covered">                function (fulfillmentValue) {</span>
+<span class="cstat-no" title="statement not covered">                    return assert[assertMethodName].apply(assert, [fulfillmentValue].concat(otherArgs));</span>
                 },
                 customRejectionHandler
             );
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            returnedPromise.notify = <span class="fstat-no" title="function not covered" >function (done) {</span></span>
-<span class="cstat-no" title="statement not covered" >                doNotify(returnedPromise, done);</span>
+<span class="cstat-no" title="statement not covered">            returnedPromise.notify = <span class="fstat-no" title="function not covered">function (done) {</span></span>
+<span class="cstat-no" title="statement not covered">                doNotify(returnedPromise, done);</span>
             };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            return returnedPromise;</span>
+<span class="cstat-no" title="statement not covered">            return returnedPromise;</span>
         };
     });
 };
 &nbsp;
-module.exports.transferPromiseness = <span class="fstat-no" title="function not covered" >function (assertion, promise) {</span>
-<span class="cstat-no" title="statement not covered" >    assertion.then = promise.then.bind(promise);</span>
+module.exports.transferPromiseness = <span class="fstat-no" title="function not covered">function (assertion, promise) {</span>
+<span class="cstat-no" title="statement not covered">    assertion.then = promise.then.bind(promise);</span>
 };
 &nbsp;
-module.exports.transformAsserterArgs = <span class="fstat-no" title="function not covered" >function (values) {</span>
-<span class="cstat-no" title="statement not covered" >    return values;</span>
+module.exports.transformAsserterArgs = <span class="fstat-no" title="function not covered">function (values) {</span>
+<span class="cstat-no" title="statement not covered">    return values;</span>
 };
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 13:09:06 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 11:22:35 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
