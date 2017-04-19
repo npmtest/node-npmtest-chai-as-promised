@@ -1,4 +1,4 @@
-npmtest-chai-as-promised@0.0.1 /home/travis/build/npmtest/node-npmtest-chai-as-promised
+npmtest-chai-as-promised@0.0.2 /home/travis/build/npmtest/node-npmtest-chai-as-promised
 └─┬ chai@3.5.0 
   ├── assertion-error@1.0.2 
   ├─┬ deep-eql@0.1.3 

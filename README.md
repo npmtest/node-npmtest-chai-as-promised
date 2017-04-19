@@ -1,4 +1,7 @@
-# test coverage for  [chai-as-promised (v6.0.0)](https://github.com/domenic/chai-as-promised#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-chai-as-promised.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-chai-as-promised) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-chai-as-promised.svg)](https://travis-ci.org/npmtest/node-npmtest-chai-as-promised)
+# npmtest-chai-as-promised
+
+#### test coverage for  [chai-as-promised (v6.0.0)](https://github.com/domenic/chai-as-promised#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-chai-as-promised.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-chai-as-promised) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-chai-as-promised.svg)](https://travis-ci.org/npmtest/node-npmtest-chai-as-promised)
+
 #### Extends Chai with assertions about promises.
 
 [![NPM](https://nodei.co/npm/chai-as-promised.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/chai-as-promised)
